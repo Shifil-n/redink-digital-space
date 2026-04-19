@@ -1,1 +1,936 @@
-# redink-digital-space
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redink Digital Space | Ponnani, Malappuram</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;600;700&family=Orbitron:wght@400;700;900&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --redink-red: #E31E24;
+            --deep-black: #000000;
+            --pure-white: #FFFFFF;
+            --gray-text: #CCCCCC;
+            --accent-red: #FF3B3F;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: var(--deep-black);
+            color: var(--pure-white);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.2rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(227, 30, 36, 0.3);
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .logo-r {
+            color: var(--pure-white);
+            background: var(--redink-red);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        .logo-edink {
+            color: var(--pure-white);
+        }
+
+        .logo-i {
+            color: var(--redink-red);
+        }
+
+        .logo-subtitle {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            color: var(--gray-text);
+            text-transform: uppercase;
+            margin-top: -0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--gray-text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--redink-red);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--pure-white);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 2rem;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(227, 30, 36, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(227, 30, 36, 0.15) 0%, transparent 50%),
+                var(--deep-black);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(227, 30, 36, 0.03) 2px,
+                    rgba(227, 30, 36, 0.03) 4px
+                );
+            pointer-events: none;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            max-width: 1200px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero h1 .highlight {
+            color: var(--redink-red);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-subtitle {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.5rem;
+            color: var(--gray-text);
+            letter-spacing: 2px;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: var(--redink-red);
+            color: var(--pure-white);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease-out 0.6s both;
+            clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--pure-white);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(227, 30, 36, 0.4);
+        }
+
+        .services {
+            padding: 8rem 4rem;
+            background: var(--deep-black);
+            position: relative;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray-text);
+            font-size: 1.2rem;
+            margin-bottom: 5rem;
+            letter-spacing: 1px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 2.5rem;
+            border: 1px solid rgba(227, 30, 36, 0.2);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(227, 30, 36, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .service-card:hover::before {
+            left: 100%;
+        }
+
+        .service-card:hover {
+            border-color: var(--redink-red);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(227, 30, 36, 0.2);
+            background: rgba(227, 30, 36, 0.05);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .service-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--redink-red);
+            letter-spacing: 1px;
+        }
+
+        .service-card p {
+            color: var(--gray-text);
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .about {
+            padding: 8rem 4rem;
+            background: 
+                linear-gradient(135deg, rgba(227, 30, 36, 0.05) 0%, transparent 100%),
+                var(--deep-black);
+        }
+
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            letter-spacing: -1px;
+        }
+
+        .about-text p {
+            color: var(--gray-text);
+            font-size: 1.1rem;
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(227, 30, 36, 0.05);
+            border: 1px solid rgba(227, 30, 36, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: scale(1.05);
+            border-color: var(--redink-red);
+        }
+
+        .stat-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--redink-red);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--gray-text);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .location {
+            padding: 8rem 4rem;
+            background: var(--deep-black);
+        }
+
+        .location-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .location-info h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            letter-spacing: -1px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: start;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 3px solid var(--redink-red);
+            transition: all 0.3s ease;
+        }
+
+        .info-item:hover {
+            background: rgba(227, 30, 36, 0.05);
+            transform: translateX(10px);
+        }
+
+        .info-icon {
+            font-size: 1.8rem;
+            color: var(--redink-red);
+            min-width: 40px;
+        }
+
+        .info-text h4 {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .info-text p {
+            color: var(--gray-text);
+            line-height: 1.7;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(227, 30, 36, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .map-placeholder {
+            text-align: center;
+            color: var(--gray-text);
+        }
+
+        .map-placeholder h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--redink-red);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .contact {
+            padding: 8rem 4rem;
+            background: 
+                linear-gradient(135deg, transparent 0%, rgba(227, 30, 36, 0.05) 100%),
+                var(--deep-black);
+        }
+
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+            letter-spacing: -1px;
+        }
+
+        .contact p {
+            color: var(--gray-text);
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            padding: 1.2rem 2.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--pure-white);
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid var(--redink-red);
+            transition: all 0.3s ease;
+            clip-path: polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-btn:hover {
+            background: var(--redink-red);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(227, 30, 36, 0.3);
+        }
+
+        .contact-btn.primary {
+            background: var(--redink-red);
+        }
+
+        .contact-btn.primary:hover {
+            background: var(--pure-white);
+            color: var(--deep-black);
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 3rem 4rem;
+            border-top: 1px solid rgba(227, 30, 36, 0.3);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-section h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--redink-red);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            letter-spacing: 1px;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: var(--gray-text);
+            line-height: 2;
+            text-decoration: none;
+            display: block;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--pure-white);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: rgba(227, 30, 36, 0.1);
+            border: 1px solid rgba(227, 30, 36, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--redink-red);
+            transform: translateY(-5px);
+            border-color: var(--redink-red);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(227, 30, 36, 0.2);
+            color: var(--gray-text);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content,
+            .location-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-buttons {
+                flex-direction: column;
+            }
+
+            .services,
+            .about,
+            .location,
+            .contact {
+                padding: 4rem 2rem;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div>
+            <div class="logo-container">
+                <div class="logo">
+                    <span class="logo-r">R</span><span class="logo-edink">ed</span><span class="logo-i">i</span><span class="logo-edink">nk</span>
+                </div>
+            </div>
+            <div class="logo-subtitle">Digital Space</div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#location">Location</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>
+                Creative <span class="highlight">Digital</span><br>
+                Solutions in <span class="highlight">Ponnani</span>
+            </h1>
+            <p class="hero-subtitle">Printing | Design | Branding | Digital Marketing</p>
+            <a href="#contact" class="cta-button">
+                <span>Get Started</span>
+            </a>
+        </div>
+    </section>
+
+    <section class="services fade-in" id="services">
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">Comprehensive digital and printing solutions for your business</p>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🖼️</div>
+                <h3>3D LED Sign Boards</h3>
+                <p>Eye-catching illuminated signage that makes your business stand out day and night with modern 3D LED technology.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📋</div>
+                <h3>Flex & Cloth Boards</h3>
+                <p>Durable outdoor and indoor flex printing solutions for banners, hoardings, and promotional displays.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">💳</div>
+                <h3>Wedding & Visiting Cards</h3>
+                <p>Beautifully designed custom cards for weddings, business, and special occasions with premium finishes.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📘</div>
+                <h3>Brochures & Notice</h3>
+                <p>Professional brochures, flyers, and notices designed to communicate your message effectively.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🎨</div>
+                <h3>Posters & Logo Making</h3>
+                <p>Creative poster designs and custom logo creation that captures your brand's unique identity.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🌐</div>
+                <h3>Online Promotions</h3>
+                <p>Strategic digital marketing campaigns to boost your online presence and reach your target audience.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🎁</div>
+                <h3>Personalised Gifts</h3>
+                <p>Custom-made gifts including mugs, t-shirts, photo frames, and more for personal and corporate occasions.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🎨</div>
+                <h3>Designs & Prints</h3>
+                <p>Complete design and printing services from concept to finished product with attention to quality.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="about fade-in" id="about">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>About Redink Digital Space</h2>
+                <p>
+                    Located in the heart of Ponnani, Malappuram, Redink Digital Space is your one-stop destination for all printing and digital solutions. We combine creativity with technology to deliver exceptional results.
+                </p>
+                <p>
+                    From traditional printing services to modern digital marketing, we provide comprehensive solutions that help businesses and individuals make a lasting impression. Our team is dedicated to quality, innovation, and customer satisfaction.
+                </p>
+                <p>
+                    Whether you need eye-catching signage, professional business cards, or a complete branding package, we have the expertise and equipment to bring your vision to life.
+                </p>
+            </div>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Projects Completed</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">300+</span>
+                    <span class="stat-label">Happy Clients</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">5+</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Customer Support</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="location fade-in" id="location">
+        <h2 class="section-title">Find Us</h2>
+        <p class="section-subtitle">Visit our space in Ponnani, Malappuram</p>
+        
+        <div class="location-content">
+            <div class="location-info">
+                <h2>Get in Touch</h2>
+                
+                <div class="info-item">
+                    <div class="info-icon">📍</div>
+                    <div class="info-text">
+                        <h4>Address</h4>
+                        <p>Ponnani, Malappuram District<br>Kerala, India</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon">📞</div>
+                    <div class="info-text">
+                        <h4>Phone</h4>
+                        <p>+91 XXXXX XXXXX</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon">✉️</div>
+                    <div class="info-text">
+                        <h4>Email</h4>
+                        <p>info@redinkdigitalspace.com</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon">🕐</div>
+                    <div class="info-text">
+                        <h4>Working Hours</h4>
+                        <p>Monday - Saturday: 9:00 AM - 8:00 PM<br>Sunday: Closed</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="map-container">
+                <div class="map-placeholder">
+                    <h3>📍 Google Maps</h3>
+                    <p>Redink Digital Space<br>Ponnani, Malappuram</p>
+                    <p style="margin-top: 2rem; font-size: 0.9rem;">
+                        <a href="https://www.google.com/maps/search/Redink+Digital+Space+Ponnani+Malappuram" 
+                           target="_blank" 
+                           style="color: var(--redink-red); text-decoration: underline;">
+                            View on Google Maps →
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact fade-in" id="contact">
+        <div class="contact-content">
+            <h2>Ready to Start Your Project?</h2>
+            <p>
+                Let's bring your ideas to life. Contact us today for a free consultation and discover how Redink Digital Space can help elevate your brand.
+            </p>
+            <div class="contact-buttons">
+                <a href="tel:+91XXXXXXXXXX" class="contact-btn primary">Call Now</a>
+                <a href="https://wa.me/91XXXXXXXXXX" class="contact-btn">WhatsApp</a>
+                <a href="mailto:info@redinkdigitalspace.com" class="contact-btn">Email Us</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Redink Digital Space</h3>
+                <p>Your trusted partner for printing and digital solutions in Ponnani, Malappuram.</p>
+                <div class="social-links">
+                    <a href="#" title="Facebook">📘</a>
+                    <a href="#" title="Instagram">📷</a>
+                    <a href="#" title="Twitter">🐦</a>
+                    <a href="#" title="LinkedIn">💼</a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#about">About Us</a>
+                <a href="#location">Location</a>
+                <a href="#contact">Contact</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Services</h3>
+                <a href="#services">3D LED Sign Boards</a>
+                <a href="#services">Flex & Cloth Boards</a>
+                <a href="#services">Wedding Cards</a>
+                <a href="#services">Logo Design</a>
+                <a href="#services">Digital Marketing</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p>📍 Ponnani, Malappuram, Kerala</p>
+                <p>📞 +91 XXXXX XXXXX</p>
+                <p>✉️ info@redinkdigitalspace.com</p>
+                <p>🕐 Mon-Sat: 9AM - 8PM</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Redink Digital Space. All rights reserved. | Designed with passion in Ponnani</p>
+        </div>
+    </footer>
+
+    <script>
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
